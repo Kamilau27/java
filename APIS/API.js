@@ -1,10 +1,11 @@
 'use strict';
-const urlApi = 
-const $botton1 = document.getElementById('btn1');
-const $botton2 = document.getElementById('btn2');
+const urlApi = "https://random-d.uk/api/v2/random"
+const $boton1 = document.getElementById('btn1');
+const $boton2 = document.getElementById('btn2');
+const $imagen = document.querySelector("img");
 
-$botton1.addEventListener('click' , obtenerPato1);
-$botton2.addEventListener('click' , obtenerPato2);
+$boton1.addEventListener('click' , obtenerPato1);
+$boton2.addEventListener('click' , obtenerPato2);
 
 function obtenerPato1(){
     fetch (urlApi)
@@ -17,10 +18,11 @@ function obtenerPato1(){
 
 async function obtenerPato2 (){
     try {
-        const respuesta = await fetch(urlApi);
-        const objeto = await respuesta.json();
-        console.log('camino feliz' , objeto);
+        let respuesta = await fetch(urlApi);
+        respuesta = await respuesta.json();
+        $imagen.src = respuesta.url;
     } catch (error) {
-        console.log('camino triste' , error);
+        alert ('camino triste' , error);
     }
 }
+
