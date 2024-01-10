@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     obtenerPokemon ('https://pokeapi.co/api/v2/pokemon/');
 });
